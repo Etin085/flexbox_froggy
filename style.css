@@ -1,0 +1,278 @@
+:root {
+  --water1: #4fc3f7;
+  --water2: #0277bd;
+  --pad: #ffd54f;
+  --pad2: #ffb300;
+  --card: #ffffff;
+  --text: #0d3b2e;
+  --pink: #ff6ec7;
+  --purple: #9575cd;
+  --green: #43e97b;
+  --green2: #2e7d32;
+  --red: #e53935;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(160deg, #b9f5d0, #7fd6f0 45%, #6fb3ea);
+  color: var(--text);
+  font-family: "Nunito", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px;
+}
+h1 {
+  font-family: "Baloo 2", cursive;
+  font-size: 1.5rem;
+  margin: 4px 0 0;
+  text-align: center;
+  background: linear-gradient(90deg, var(--green2), #00897b, var(--purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.sub {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  text-align: center;
+  max-width: 420px;
+  margin: 3px 0 8px;
+  font-weight: 600;
+}
+.topbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+  font-family: "Baloo 2", cursive;
+  font-size: 0.9rem;
+}
+.hearts {
+  letter-spacing: 2px;
+}
+.scoreBox {
+  background: #fff;
+  border-radius: 10px;
+  padding: 4px 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+.dots {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ffffff88;
+  border: 2px solid #ffffffcc;
+}
+.dot.done {
+  background: var(--green);
+}
+.dot.active {
+  background: var(--pink);
+  transform: scale(1.3);
+}
+.stage {
+  width: min(94vw, 430px);
+  background: var(--card);
+  border-radius: 22px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0, 60, 40, 0.25);
+  border: 3px solid #ffffffaa;
+}
+.timerWrap {
+  height: 8px;
+  background: #eee;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.timerBar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--green), var(--pink));
+  width: 100%;
+  transition: width 0.2s linear;
+}
+.goalCard {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff3c4, #ffe0b2);
+  border-radius: 14px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border: 2px dashed var(--pad2);
+}
+.goalCard span.ic {
+  font-size: 1.2rem;
+}
+.pond {
+  position: relative;
+  min-height: 190px;
+  border-radius: 16px;
+  background: radial-gradient(
+    circle at 30% 20%,
+    var(--water1),
+    var(--water2) 80%
+  );
+  display: flex;
+  padding: 12px;
+  overflow: auto;
+  box-shadow: inset 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+.frog {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: radial-gradient(circle at 35% 30%, var(--pad), var(--pad2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 3px #fff8dd;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.controls {
+  margin-top: 14px;
+}
+.ctrl {
+  margin-bottom: 9px;
+}
+.ctrl label {
+  font-family: "Baloo 2", cursive;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--purple);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.opts button {
+  border: none;
+  background: #eef6ff;
+  color: var(--text);
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 0 #d3e4f5;
+}
+.opts button.active {
+  background: linear-gradient(135deg, var(--green), #00c9a7);
+  color: #fff;
+  box-shadow: 0 2px 0 var(--green2);
+}
+.opts button:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  justify-content: center;
+}
+button.big {
+  font-family: "Baloo 2", cursive;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  color: #fff;
+}
+#checkBtn {
+  background: linear-gradient(135deg, var(--pink), #ff8a80);
+  box-shadow: 0 4px 0 #c2185b;
+}
+#checkBtn:active {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+#resetBtn {
+  background: linear-gradient(135deg, #90a4ae, #78909c);
+  box-shadow: 0 4px 0 #546e7a;
+}
+#resetBtn:active {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+#hintBtn {
+  background: linear-gradient(135deg, #ffca28, #ffa000);
+  box-shadow: 0 4px 0 #ff8f00;
+  font-size: 0.8rem;
+  padding: 10px 14px;
+}
+#hintBtn:active {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+#msg {
+  min-height: 22px;
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  font-weight: 800;
+  font-family: "Baloo 2", cursive;
+}
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 40, 30, 0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  padding: 20px;
+}
+#overlay.show {
+  display: flex;
+}
+.card2 {
+  background: linear-gradient(160deg, #fff, #f0fff4);
+  border-radius: 20px;
+  padding: 26px 22px;
+  text-align: center;
+  max-width: 320px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+.card2 h2 {
+  font-family: "Baloo 2", cursive;
+  font-size: 1.4rem;
+  color: var(--green2);
+  margin: 6px 0;
+}
+.confetti {
+  position: fixed;
+  top: -20px;
+  font-size: 1.4rem;
+  pointer-events: none;
+  animation: fall linear forwards;
+  z-index: 19;
+}
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.3;
+  }
+}

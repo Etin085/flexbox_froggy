@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flex Frog Academy — Hard Mode</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🐸🔥 Flex Frog Academy — Hard Mode</h1>
+  <div class="sub">Beat the clock, combine properties, don't lose your lives!</div>
+  <div class="topbar">
+    <div class="hearts" id="hearts"></div>
+    <div class="scoreBox">⭐ <span id="score">0</span></div>
+    <button id="hintBtn" class="big">💡 Hint (-5)</button>
+  </div>
+  <div class="dots" id="dots"></div>
+
+  <div class="stage">
+    <div class="timerWrap"><div class="timerBar" id="timerBar"></div></div>
+    <div class="goalCard"><span class="ic">🎯</span><span id="goalText"></span></div>
+    <div class="pond" id="pond"></div>
+    <div class="controls" id="controls"></div>
+    <div id="msg"></div>
+    <div class="actions">
+      <button class="big" id="resetBtn">🔄 Reset</button>
+      <button class="big" id="checkBtn">✅ Check!</button>
+    </div>
+  </div>
+
+  <div id="overlay">
+    <div class="card2">
+      <div id="overlayIcon" style="font-size:2rem;">🏆🐸🏆</div>
+      <h2 id="overlayTitle">Flexbox Champion!</h2>
+      <p id="overlayMsg">You finished every pond.</p>
+      <button class="big" id="playAgain">Play Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
